@@ -1,0 +1,47 @@
+Your project will be graded out of 100 points.
+
+Your main project for this class will be to implement a Poker hand comparator.
+This is to say, given two Poker hands as input, you should be able to determine which one wins.
+The rules of Poker can be found here.
+
+Here are the files from the slides:
+PlayingCard.h
+PokerHand.h
+PlayingCard.java
+PokerHand.java
+
+The most efficient way to do this would be as follows:
+
+   1. Create a PokerHand class, which accepts 5 cards, puts them into an array, and sort them.
+    The cards are sorted to make the hand easier to rank.
+    It places cards of equal value adjacent to each other, and a straight in consecutive order.
+   2. Create a ranking function, which determines what rank a given hand is.
+    For instance, for the following hands in which not all cards are the same suit:
+    The hand 7 5 5 2 2 could be represented as (TWO PAIR, 5, 2, 7)
+    which would indicate a high pair of 5's, a low pair of 2's, and a kicker of 7.
+    The hand 9 9 4 4 4 could be represented as (FULL HOUSE, 4, 9)
+    which would indicate three 4's and two 9's.
+    The hand K Q J 10 9 could be represented as (STRAIGHT, K)
+    which would indicate a straight with a K high.
+   3. Implement a comparator for this ranking function.
+
+The input of a hand will be given in the following format.
+H is Heart, S is Spade, D is Diamond, C is Club
+7 S
+9 H
+2 C
+K S
+7 H
+
+Since this hand is off suit, it would be interpreted as:
+K 9 7 7 2
+Or, (PAIR, 7, K, 9, 2)
+
+
+As extra credit, you can implement a Texas Hold'Em hand ranking function.
+A Texas Hold'Em hand is the best 5 card Poker hand you can create out of a set of 7 cards.
+
+The most efficient way to do this would be as follows:
+
+   1. Create a combinatoric function which takes the 7 cards and returns 21 (7 choose 5) poker hands
+   2. Take the highest ranked of these poker hands.
